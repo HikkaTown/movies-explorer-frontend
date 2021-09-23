@@ -1,0 +1,29 @@
+.promo {
+    background-color: #073042;
+}
+
+.promo__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+
+.promo__head {
+    font-size: 50px;
+    line-height: 58px;
+    color: #fff;
+    letter-spacing: -0.04em;
+    max-width: 730px;
+    width: 100%;
+    text-align: center;
+    margin: 184px auto 0;
+    z-index: 10;
+}
+
+.promo__logo {
+    max-width: 320px;
+    max-height: 320px;
+    transform: translateY(-65%);
+}

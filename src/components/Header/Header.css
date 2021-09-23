@@ -1,0 +1,32 @@
+.header {
+    width: 1140px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__sign-list {
+    display: flex;
+}
+
+.header__button {
+    color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.header__button_signin {
+    color: #000;
+    background-color: #3DDC84;
+    border-radius: 3px;
+    padding: 8px 20px;
+    margin-left: 30px;
+}
