@@ -13,17 +13,38 @@
 .promo__head {
     font-size: 50px;
     line-height: 58px;
+    font-weight: normal;
     color: #fff;
     letter-spacing: -0.04em;
     max-width: 730px;
-    width: 100%;
     text-align: center;
-    margin: 184px auto 0;
+    margin: 202px auto 0;
     z-index: 10;
+    padding: 0 20px;
 }
 
 .promo__logo {
     max-width: 320px;
     max-height: 320px;
     transform: translateY(-65%);
+}
+
+@media screen and (max-width: 768px) {
+    .promo__head {
+        margin-top: 344px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .promo__head {
+        font-size: 31px;
+        line-height: 39px;
+        padding: 0 10px;
+        margin-top: 225px;
+    }
+
+    .promo__logo {
+        max-width: 248px;
+        max-height: 248px;
+    }
 }

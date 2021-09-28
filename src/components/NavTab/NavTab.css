@@ -8,6 +8,7 @@
 .navtab__list {
     display: flex;
     list-style-type: none;
+    margin: 25px 0;
 }
 
 .navtab__item {
@@ -21,4 +22,12 @@
 
 .navtab__item:nth-last-of-type() {
     margin-right: 0;
+}
+
+
+@media screen and (max-width: 510px) {
+    .navtab__item {
+        font-size: 11px;
+        margin-right: 24px;
+    }
 }

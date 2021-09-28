@@ -14,6 +14,7 @@
     padding-bottom: 23px;
     font-size: 22px;
     line-height: 27px;
+    font-weight: normal;
     color: #fff;
     letter-spacing: -0.04em;
     border-bottom: 1px solid #DADADA;
@@ -62,8 +63,8 @@
 }
 
 .about__progress-item_color {
-    max-width: 100%;
-    width: 280px;
+    max-width: 228px;
+    width: 100%;
 }
 
 .about__point {
@@ -95,4 +96,107 @@
     line-height: 17px;
     margin: 14px 0 0;
     padding: 0;
+}
+
+@media screen and (max-width: 1140px) {
+    .about {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about__container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .about {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .about {
+        padding: 90px 50px;
+    }
+
+    .about__content {
+        margin-bottom: 93px;
+    }
+
+    .about__article {
+        margin-right: 30px;
+    }
+
+    .about__title {
+        margin-bottom: 22px;
+    }
+
+    .about__progress-item_color {
+        max-width: 140px;
+    }
+
+    .about__point_color {
+        max-width: 140px;
+        padding: 9px 0;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .about {
+        padding: 70px 18px;
+    }
+
+    .about__header {
+        padding-bottom: 28px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about__content {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        flex-direction: column;
+    }
+
+    .about__article {
+        margin-right: 0;
+        margin-bottom: 56px;
+    }
+
+    .about__article:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .about__title {
+        margin-bottom: 16px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about__subtitle {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about__progress-item_color {
+        max-width: 100px;
+    }
+
+    .about__point {
+        font-size: 11px;
+        line-height: 13px;
+        padding: 11px 0;
+    }
+
+    .about__point_color {
+        max-width: 100px;
+    }
+
+    .about__point-name {
+        font-size: 11px;
+        line-height: 13px;
+    }
 }
