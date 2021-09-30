@@ -64,6 +64,12 @@
     text-align: center;
     box-sizing: border-box;
     margin-left: 10px;
+    transition: background .4s, color .4s linear;
+}
+
+.techs__item:hover {
+    background-color: #3DDC84;
+    color: #000;
 }
 
 .techs__item:first-of-type {

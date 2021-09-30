@@ -12,6 +12,11 @@
     font-size: 13px;
     line-height: 18px;
     font-weight: normal;
+    transition: color .4s linear;
+}
+
+.navigation__button:hover {
+    color: #3DDC84;
 }
 
 .navigation__button:last-of-type {
@@ -19,7 +24,7 @@
 }
 
 .navigation__button_active {
-    
+    border-bottom: 2px solid #fff;
 }
 
 .navigation__button_profile {
@@ -33,6 +38,11 @@
     border: 2px solid rgba(255,255,255, .2);
     border-radius: 50px;
     text-align: center;
+    transition: border .4s linear;
+}
+
+.navigation__button_profile:hover {
+    border-color: #3DDC84;
 }
 
 .navigation__button_home {

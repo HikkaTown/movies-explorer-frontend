@@ -1,4 +1,12 @@
-.header {
+.header_landing {
+    background-color: #073042;
+}
+
+.header_movies {
+    background-color: #202020;
+}
+
+.header__container {
     width: 100%;
     max-width: 1140px;
     margin: 0 auto;
@@ -7,6 +15,7 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    padding-bottom: 18px;
 }
 
 .header__logo {
@@ -27,33 +36,36 @@
     outline: none;
     cursor: pointer;
     font-weight: 500;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background .4s, color .4s linear;
 }
 
 .header__button_signin {
-    color: #000;
-    background-color: #3DDC84;
-    border-radius: 3px;
-    padding: 8px 20px;
     margin-left: 30px;
 }
 
+.header__button:hover {
+    background-color: #3DDC84;
+    color: #000;
+}
+
 @media screen and (max-width: 1140px) {
-    .header {
-        padding-left: 20px;
-        padding-right: 20px;
+    .header__container {
         max-width: 960px;
     }
 }
 
 @media screen and (max-width: 1024px) {
-    .header {
+    .header__container {
         padding-left: 30px;
         padding-right: 30px;
     }
 }
 
 @media screen and (max-width: 510px) {
-    .header {
+    .header__container {
         padding-left: 18px;
         padding-right: 18px;
     }

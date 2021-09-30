@@ -1,6 +1,7 @@
 .footer {
     background-color: #202020;
     padding: 79px 0 20px;
+    margin-top: auto;
 }
 
 .footer__container {
@@ -46,6 +47,12 @@
     color: #fff;
     margin-right: 20px;
     text-decoration: none;
+    opacity: 1;
+    transition: .4s linear;
+}
+
+.footer__link:hover {
+    opacity: .7;
 }
 
 .footer__link:last-of-type {

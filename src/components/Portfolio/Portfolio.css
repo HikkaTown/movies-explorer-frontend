@@ -50,6 +50,12 @@
     font-weight: normal;
     font-size: 30px;
     line-height: 60px;
+    opacity: 1;
+    transition: .4s linear;
+}
+
+.portfolio__link:hover {
+    opacity: .7;
 }
 
 @media screen and (max-width: 1140px) {
