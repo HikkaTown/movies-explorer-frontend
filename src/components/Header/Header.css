@@ -11,10 +11,17 @@
     max-width: 1140px;
     margin: 0 auto;
     padding-top: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding-bottom: 18px;
 }
 
@@ -24,6 +31,8 @@
 }
 
 .header__sign-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -39,6 +48,8 @@
     padding: 8px 20px;
     text-decoration: none;
     border-radius: 3px;
+    -webkit-transition: background .4s, color .4s linear;
+    -o-transition: background .4s, color .4s linear;
     transition: background .4s, color .4s linear;
 }
 

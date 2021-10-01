@@ -26,8 +26,12 @@
 }
 
 .portfolio__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     font-weight: normal;
     font-size: 30px;
     line-height: 50px;
@@ -51,6 +55,8 @@
     font-size: 30px;
     line-height: 60px;
     opacity: 1;
+    -webkit-transition: .4s linear;
+    -o-transition: .4s linear;
     transition: .4s linear;
 }
 

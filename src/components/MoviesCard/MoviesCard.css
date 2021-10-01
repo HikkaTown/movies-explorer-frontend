@@ -24,9 +24,12 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 9px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 6px 7px;
     opacity: 0;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
     transition: opacity .3s;
     cursor: pointer;
     z-index: 10;
@@ -40,7 +43,8 @@
     outline: none;
     border: none;
     height: 21px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     border-radius: 50%;
     width: 21px;
     background-image: url('../../images/icon__check.svg');
@@ -48,6 +52,8 @@
     background-repeat: no-repeat;
     z-index: 10;
     opacity: 0;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
     transition: opacity .3s;
     cursor: pointer;
 }
@@ -67,6 +73,8 @@
     border-radius: 50%;
     z-index: 10;
     opacity: 0;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
     transition: opacity .3s;
     cursor: pointer;
 }
@@ -100,8 +108,12 @@
 .moviesCard__content {
     margin-top: 14px;
     padding: 0 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .moviesCard__name {
@@ -112,7 +124,8 @@
     font-size: 13px;
     line-height: 16px;
     max-width: 250px;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -128,7 +141,8 @@
     background-color: #2F2F2F;
     padding: 3px 4px;
     border-radius: 3px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 

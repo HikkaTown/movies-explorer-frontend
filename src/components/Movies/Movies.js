@@ -1,48 +1,47 @@
 import React from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
-import './Movies.css';
 
 function Movies() {
     const moviesData = [
         {
             id: 1,
-            name: 'Название',
+            name: 'Баския: Взрыв реальности',
             image: './moviesImage/pic__COLOR_pic-1.png',
             time: '1ч 17м',
-            status: false // true - сохранён, false - нет
+            status: true // true - сохранён, false - нет
         },
         {
             id: 2,
-            name: 'Название',
+            name: 'Когда я думаю о Германии ночью',
             image: './moviesImage/pic__COLOR_pic-2.png',
             time: '1ч 17м',
-            status: false // true - сохранён, false - нет
+            status: true // true - сохранён, false - нет
         },
-        {
+        {   
             id: 3,
-            name: 'Название',
+            name: 'Соберись перед прыжком',
             image: './moviesImage/pic__COLOR_pic-3.png',
             time: '1ч 17м',
-            status: false // true - сохранён, false - нет
+            status: true // true - сохранён, false - нет
         },
-        {
+        {   
             id: 4,
-            name: 'Название',
+            name: 'Киноальманах «100 лет дизайна»',
             image: './moviesImage/pic__COLOR_pic-4.png',
             time: '1ч 17м',
-            status: false // true - сохранён, false - нет
+            status: true // true - сохранён, false - нет
         },
         {
             id: 5,
-            name: 'Название',
+            name: 'Бег это свобода',
             image: './moviesImage/pic__COLOR_pic-5.png',
             time: '1ч 17м',
             status: false // true - сохранён, false - нет
         },
         {
             id: 6,
-            name: 'Название',
+            name: 'Gimme Danger: История Игги и The Stooges',
             image: './moviesImage/pic__COLOR_pic-6.png',
             time: '1ч 17м',
             status: false // true - сохранён, false - нет

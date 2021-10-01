@@ -1,5 +1,5 @@
 import './Promo.css';
-import promoLogo from './promo-logo.svg'
+import promoLogo from '../../images/promo-logo.svg'
 function Promo() {
     return (
         <section className="promo">

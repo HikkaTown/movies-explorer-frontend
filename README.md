@@ -1,3 +1,6 @@
+# Сылка на макет
+[https://www.figma.com/file/shI35ia2sTcO5L3hoS0TQB/Diploma?node-id=932%3A3401](https://www.figma.com/file/shI35ia2sTcO5L3hoS0TQB/Diploma?node-id=932%3A3401)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

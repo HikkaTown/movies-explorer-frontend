@@ -17,8 +17,8 @@ function AboutMe() {
                             начал заниматься фриланс-заказами и ушёл с постоянной работы.
                         </p>
                         <ul className="aboutMe__links">
-                            <li className="aboutMe__item"><a href="!#" className="aboutMe__link">Facebook</a></li>
-                            <li className="aboutMe__item"><a href="!#" className="aboutMe__link">Github</a></li>
+                            <li className="aboutMe__item"><a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="aboutMe__link">Facebook</a></li>
+                            <li className="aboutMe__item"><a href="https://github.com/HikkaTown" target="_blank" rel="noreferrer" className="aboutMe__link">Github</a></li>
                         </ul>
                     </div>
                     <img src={avatar} alt="Фотографи" className="aboutMe__avatar" />

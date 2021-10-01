@@ -1,33 +1,32 @@
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
-import './SavedMovies.css';
 
 function SavedMovies() {
     const moviesData = [
         {
             id: 1,
-            name: 'Название',
+            name: 'Баския: Взрыв реальности',
             image: './moviesImage/pic__COLOR_pic-1.png',
             time: '1ч 17м',
             status: true // true - сохранён, false - нет
         },
         {
             id: 2,
-            name: 'Название',
+            name: 'Когда я думаю о Германии ночью',
             image: './moviesImage/pic__COLOR_pic-2.png',
             time: '1ч 17м',
             status: true // true - сохранён, false - нет
         },
         {   
             id: 3,
-            name: 'Название',
+            name: 'Соберись перед прыжком',
             image: './moviesImage/pic__COLOR_pic-3.png',
             time: '1ч 17м',
             status: true // true - сохранён, false - нет
         },
         {   
             id: 4,
-            name: 'Название',
+            name: 'Киноальманах «100 лет дизайна»',
             image: './moviesImage/pic__COLOR_pic-4.png',
             time: '1ч 17м',
             status: true // true - сохранён, false - нет

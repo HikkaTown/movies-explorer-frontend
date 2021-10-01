@@ -7,7 +7,9 @@
 .moviesList__container {
     max-width: 1140px;
     margin: 0 auto;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 30px 1fr 30px 1fr;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto-fit, 1fr);
     grid-column-gap: 30px;
@@ -16,7 +18,8 @@
 
 .moviesList__more {
     margin: 50px 0 80px 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     width: 320px;
     height: 32px;
     background: none;
@@ -27,6 +30,8 @@
     cursor: pointer;
     border: 1px solid #424242;
     border-radius: 5px;
+    -webkit-transition: .4s ease-in-out;
+    -o-transition: .4s ease-in-out;
     transition: .4s ease-in-out;
 }
 

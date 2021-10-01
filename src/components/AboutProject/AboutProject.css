@@ -21,8 +21,12 @@
 }
 
 .about__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-top: 70px;
     margin-bottom: 110px;
 }
@@ -55,6 +59,8 @@
 }
 
 .about__progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -75,7 +81,8 @@
     text-align: center;
     width: 100%;
     padding: 9px 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     background-color: #303030;
     color: #fff;
 }
@@ -158,7 +165,10 @@
     .about__content {
         margin-top: 60px;
         margin-bottom: 60px;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .about__article {

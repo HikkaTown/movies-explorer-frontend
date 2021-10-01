@@ -12,9 +12,9 @@ function Footer() {
                     <p className="footer__copyright">&copy; 2020</p>
 
                     <nav className="footer__links">
-                        <a href="#!" className="footer__link">Яндекс.Практикум</a>
-                        <a href="#!" className="footer__link">Github</a>
-                        <a href="#!" className="footer__link">Facebook</a>
+                        <a href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer" className="footer__link">Яндекс.Практикум</a>
+                        <a href="https://github.com/HikkaTown" target="_blank" rel="noreferrer" className="footer__link">Github</a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="footer__link">Facebook</a>
                     </nav>
                 </div>
             </div>

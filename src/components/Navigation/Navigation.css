@@ -1,8 +1,12 @@
 .navigation {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-left: 30px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .navigation__button {
@@ -12,6 +16,8 @@
     font-size: 13px;
     line-height: 18px;
     font-weight: normal;
+    -webkit-transition: color .4s linear;
+    -o-transition: color .4s linear;
     transition: color .4s linear;
 }
 
@@ -23,8 +29,8 @@
     margin-right: 0;
 }
 
-.navigation__button_active {
-    border-bottom: 2px solid #fff;
+.navigation__button_active {    
+    font-weight: 500;
 }
 
 .navigation__button_profile {
@@ -32,12 +38,15 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 28px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     width: 100px;
     height: 32px;
     border: 2px solid rgba(255,255,255, .2);
     border-radius: 50px;
     text-align: center;
+    -webkit-transition: border .4s linear;
+    -o-transition: border .4s linear;
     transition: border .4s linear;
 }
 
@@ -72,6 +81,8 @@
     background-color: #fff;
     margin-bottom: 7px;
     display: block;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
     transition: .5s;
 }
 
@@ -81,40 +92,75 @@
 
 
 .navigation__burger_active .navigation__line:nth-child(1) {
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
     top: 0;
     left: 0;
     position: absolute;
 }
 
 .navigation__burger_active .navigation__line:nth-child(2) {
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
     position: absolute;
 }
 
 .navigation__burger_active .navigation__line:nth-child(3) {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     
+}
+
+
+@-webkit-keyframes showNavigation {
+    from {
+        -webkit-transform: translate(100%);
+                transform: translate(100%);
+    }
+
+    to {
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
 }
 
 
 @keyframes showNavigation {
     from {
-        transform: translate(100%);
+        -webkit-transform: translate(100%);
+                transform: translate(100%);
     }
 
     to {
-        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes hidenNavigation {
+    from {
+        -webkit-transform: translate(0%);
+                transform: translate(0%);
+    }
+
+    to {
+        -webkit-transform: translateX(100%);
+                transform: translateX(100%);
     }
 }
 
 @keyframes hidenNavigation {
     from {
-        transform: translate(0%);
+        -webkit-transform: translate(0%);
+                transform: translate(0%);
     }
 
     to {
-        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+                transform: translateX(100%);
     }
 }
 
@@ -125,13 +171,18 @@
         position: absolute;
         top: 0;
         right: 0;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         max-width: 520px;
         background-color: #202020;
         height: 100%;
         z-index: 11;
         display: none;
-        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+            -ms-transform: translateX(100%);
+                transform: translateX(100%);
     }
 
     .navigation__burger {
@@ -139,12 +190,16 @@
     }
 
     .navigation_open {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        animation: showNavigation 1.5s ease-in-out 1 normal forwards;
+        -webkit-animation: showNavigation 1.5s ease-in-out 1 normal forwards;
+                animation: showNavigation 1.5s ease-in-out 1 normal forwards;
     }
 
     .navigation_hidden {
-        animation: hidenNavigation 1.5s ease-in-out 1 normal forwards;
+        -webkit-animation: hidenNavigation 1.5s ease-in-out 1 normal forwards;
+                animation: hidenNavigation 1.5s ease-in-out 1 normal forwards;
     }
 
     .navigation__button {
@@ -158,6 +213,10 @@
     .navigation__button_home {
         display: block;
         margin-top: 159px;
+    }
+
+    .navigation__button_active {
+        border-bottom: 2px solid #fff;
     }
 
     .navigation__button_profile {
