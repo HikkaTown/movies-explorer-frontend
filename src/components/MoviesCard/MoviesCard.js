@@ -12,7 +12,7 @@ function MoviesCard(props) {
 
     return (
         <article className="moviesCard">
-            <img className="moviesCard__image" src={movieData.image} alt={movieData.className} />
+            <img className="moviesCard__image" src={movieData.image} alt={movieData.name} />
             {
                 window.location.pathname === '/movies' ? saveState ? 
                 (<button className="moviesCard__btn-saved"></button>) 

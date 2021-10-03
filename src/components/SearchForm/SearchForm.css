@@ -36,6 +36,11 @@
     grid-area: search__input;
 }
 
+.search__input:focus ~ .search__checkbox {
+    border-top-color: #4285F4;
+}
+
+
 .search__input::-webkit-input-placeholder {
     color: #8B8B8B;
 }

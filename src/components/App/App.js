@@ -12,7 +12,7 @@ import NotFound from '../NotFound/NotFound';
 
 
 function App() {
-  const loggedin = true;
+  const loggedin = false;
   return (
     <>
       <Switch>
