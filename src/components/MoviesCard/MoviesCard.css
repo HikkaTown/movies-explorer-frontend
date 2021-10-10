@@ -9,6 +9,9 @@
     border-radius: 6px;
     max-width: 360px;
     max-height: 201px;
+    object-position: center;
+    object-fit: cover;
+    height: 100%;
     z-index: 1;
 }
 
@@ -150,5 +153,6 @@
     .moviesCard__name {
         font-size: 12px;
         line-height: 15px;
+        max-width: 210px;
     }
 }

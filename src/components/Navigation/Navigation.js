@@ -6,7 +6,6 @@ import './Navigation.css';
 function Navigation() {
     const [activeMenu, setActiveMenu] = React.useState(false);
     function ShowMenuButton(e) {
-        console.log(window.innerWidth)
         if(window.innerWidth <= 768) {
             if(activeMenu === false) {
                 setActiveMenu(true);

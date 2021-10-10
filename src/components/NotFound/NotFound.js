@@ -7,7 +7,7 @@ function NotFound() {
             <div className="notFound__container">
                 <h1 className="notFound__code">404</h1>
                 <p className="notFound__title">Страница не найдена</p>
-                <Link className="notFound__link" exact={true} to="/">Назад</Link>
+                <Link className="notFound__link" to="/">Назад</Link>
             </div>
         </section>
     )

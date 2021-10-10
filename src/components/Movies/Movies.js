@@ -1,58 +1,42 @@
-import React from 'react';
+import './Movies.css';
+import React, { useEffect, useState } from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
+import Preloader from '../Preloader/Preloader';
 
-function Movies() {
-    const moviesData = [
-        {
-            id: 1,
-            name: 'Баския: Взрыв реальности',
-            image: './moviesImage/pic__COLOR_pic-1.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
-        },
-        {
-            id: 2,
-            name: 'Когда я думаю о Германии ночью',
-            image: './moviesImage/pic__COLOR_pic-2.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
-        },
-        {   
-            id: 3,
-            name: 'Соберись перед прыжком',
-            image: './moviesImage/pic__COLOR_pic-3.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
-        },
-        {   
-            id: 4,
-            name: 'Киноальманах «100 лет дизайна»',
-            image: './moviesImage/pic__COLOR_pic-4.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
-        },
-        {
-            id: 5,
-            name: 'Бег это свобода',
-            image: './moviesImage/pic__COLOR_pic-5.png',
-            time: '1ч 17м',
-            status: false // true - сохранён, false - нет
-        },
-        {
-            id: 6,
-            name: 'Gimme Danger: История Игги и The Stooges',
-            image: './moviesImage/pic__COLOR_pic-6.png',
-            time: '1ч 17м',
-            status: false // true - сохранён, false - нет
-        },
-    ];
 
+function Movies(props) {
+    const [searchMovie, setSearchMovie] = useState('');
+    useEffect(() => {
+        if(props.moviesData) {
+            setSearchMovie(props.moviesData);
+        } else {
+            setSearchMovie(null)
+        }
+    }, [props.moviesData])
     return (<>
-        <SearchForm></SearchForm>
-        <MoviesCardList
-            movies={moviesData}
+        <SearchForm
+            onSubmitSeacrh={props.handleSubmitSearchMovie}
         />
+        {
+            props.loading ? <Preloader/> : (!!localStorage.getItem('movies') ? searchMovie ? (<MoviesCardList
+                handleSubmitSaveMovie={props.handleSubmitSaveMovie}
+                userMovies={props.userMovies}
+                removeSavedMovie={props.removeSavedMovie}
+                windowSize={props.windowSize} // фильмы из резултата поиска
+                moviesData={searchMovie}/>) : 
+                props.findResult ? 
+                (<p className="movies__message_error">{props.findResult}</p>) : 
+                !!localStorage.getItem('movies') ? 
+                (<MoviesCardList
+                    handleSubmitSaveMovie={props.handleSubmitSaveMovie}
+                    userMovies={props.userMovies}
+                    removeSavedMovie={props.removeSavedMovie} 
+                    windowSize={props.windowSize} // фильмы из резултата поиска
+                    moviesData={JSON.parse(localStorage.getItem('movies'))}/>) : 
+                (<p className="movies__message_error">{props.findResult}</p>)  : 
+                '')
+        }
     </>
     )
 }

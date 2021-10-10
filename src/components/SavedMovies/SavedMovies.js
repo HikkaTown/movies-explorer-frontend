@@ -1,42 +1,30 @@
+import React, { useEffect, useState } from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
+import Preloader from '../Preloader/Preloader';
 
-function SavedMovies() {
-    const moviesData = [
-        {
-            id: 1,
-            name: 'Баския: Взрыв реальности',
-            image: './moviesImage/pic__COLOR_pic-1.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
-        },
-        {
-            id: 2,
-            name: 'Когда я думаю о Германии ночью',
-            image: './moviesImage/pic__COLOR_pic-2.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
-        },
-        {   
-            id: 3,
-            name: 'Соберись перед прыжком',
-            image: './moviesImage/pic__COLOR_pic-3.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
-        },
-        {   
-            id: 4,
-            name: 'Киноальманах «100 лет дизайна»',
-            image: './moviesImage/pic__COLOR_pic-4.png',
-            time: '1ч 17м',
-            status: true // true - сохранён, false - нет
+function SavedMovies(props) {
+    const [savedData, setSavedData] = useState(false);
+    useEffect(() => {
+        if(props.savedSearch) {
+            setSavedData(true)
+        } else {
+            setSavedData(false)
         }
-    ];
+    }, [props.savedSearch]);
     return (<>
-        <SearchForm></SearchForm>
-        <MoviesCardList
-            movies={moviesData}
-        />
+        <SearchForm searchSavedMovie={props.searchSavedMovie} />
+        {
+            props.loading ? <Preloader/> : (!!props.userMovies ? savedData ? (<MoviesCardList
+                moviesData={props.savedSearch}
+                windowSize={props.windowSize}
+                removeSavedMovie={props.removeSavedMovie}
+            />) : props.savedSearchError ? (<p className="movies__message_error">{props.savedSearchError}</p>) : props.userMovies ? (<MoviesCardList
+                moviesData={props.userMovies}
+                windowSize={props.windowSize}
+                removeSavedMovie={props.removeSavedMovie}
+            />) : (<p className="movies__message_error">{props.findResult}</p>) : '')
+        }
     </>)
 }
 

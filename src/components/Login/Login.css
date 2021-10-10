@@ -102,6 +102,15 @@
     background-color: #13408d;
 }
 
+.login__submit_disabled {
+    background-color: gray;
+    cursor: default;
+}
+
+.login__submit_disabled:hover {
+    background-color: gray;
+}
+
 .login__register {
     margin: 14px 0 0 0;
     padding: 0;
