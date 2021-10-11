@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import './MoviesCard.css';
 
 function MoviesCard(props) {
