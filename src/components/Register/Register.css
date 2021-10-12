@@ -76,6 +76,13 @@
     opacity: 0;
 }
 
+.register__error_total {
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #8B8B8B;
+}
+
 .register__error_active {
     opacity: 1;
 }

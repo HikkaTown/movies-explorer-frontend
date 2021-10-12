@@ -1,4 +1,6 @@
-const BASE_URL = 'https://api.best-movies.nomoredomains.club';
+// const BASE_URL = 'https://api.best-movies.nomoredomains.club';
+
+const BASE_URL = 'http://localhost:3454';
 
 function _responseValid(res) {
     return res.ok ? res.json() : Promise.reject(`${res.status}`);

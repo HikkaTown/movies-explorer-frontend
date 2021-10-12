@@ -84,6 +84,7 @@ function Login(props) {
                     <button disabled={!formValid} className={!formValid ? 'login__submit login__submit_disabled' : 'login__submit'} type="submit">Войти</button>
                 </form>
                 <p className="login__register">Ещё не зарегистрированы?<Link className="login__register-link" to="/signup">Регистрация</Link></p>
+                { props.errorLogin ? <p className="register__error register__error_active register__error_total">Ошибка авторизации</p> : ''}
             </div>
         </section>
     )

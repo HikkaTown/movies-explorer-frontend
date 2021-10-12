@@ -54,7 +54,7 @@
     background-position: center;
     background-repeat: no-repeat;
     z-index: 10;
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity .3s;
     -o-transition: opacity .3s;
     transition: opacity .3s;
@@ -96,10 +96,6 @@
 
 .moviesCard:hover .moviesCard__btn-delete:hover {
     opacity: .7;
-}
-
-.moviesCard:hover .moviesCard__btn-saved {
-    opacity: 1;
 }
 
 .moviesCard:hover .moviesCard__btn-saved:hover {
@@ -146,6 +142,12 @@
     border-radius: 3px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+}
+
+@media screen and (max-width: 1125) {
+    ..moviesCard__name {
+        max-width: 215px;
+    }
 }
 
 

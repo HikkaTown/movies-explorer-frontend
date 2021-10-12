@@ -91,6 +91,7 @@ function Register(props) {
                     <button disabled={!formValid} className={!formValid ? 'register__submit register__submit_disabled' : 'register__submit'} type="submit">Зарегистрироваться</button>
                 </form>
                 <p className="register__login">Уже зарегистрированы?<Link className="register__login-link" to="/signin">Войти</Link></p>
+                { props.errorRegistation ? <p className="register__error register__error_active register__error_total">Ошибка регистрации</p> : ''}
             </div>
         </section>
     )

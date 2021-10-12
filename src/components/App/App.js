@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Route, Switch, useHistory, withRouter} from 'react-router';
+import { Redirect, Route, Switch, useHistory, withRouter} from 'react-router';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -22,6 +22,8 @@ function App() {
   });
   const [windowSize, setSize] = useState(window.innerWidth);
   const [loggedin, setLoggedin] = useState(false);
+  const [errorRegistation, setErrorRegistration] = useState(false);
+  const [errorLogin, setErrorLogin] = useState(false);
   const history = useHistory();
   useEffect(() => {
     if(loggedin) {
@@ -48,9 +50,12 @@ function App() {
           name: res.data.name
         }));
         getUserMovies();
-        history.push('/movies')
+        setErrorLogin(false);
+        history.push('/movies');
       })
-      .catch((err) => console.log(`Ошибка - ${err}`));
+      .catch((err) => {
+        console.log(`Ошибка - ${err}`);
+      });
   }
   // Проверка вошли мы или нет
   const tokenCheck = useCallback(() => {
@@ -94,27 +99,31 @@ function App() {
         handleLogin();
       })
       .catch((err) => {
+        setErrorLogin(true);
         console.log(`Ошибка - ${err}`);
       })
   }
-
+  // хэндлер регистрации
   function handleSubmitRegister(email, password, name) {
     mainApi.register(email, password, name)
       .then((data) => {
         if(data) {
-          console.log('Успешная регистрация');
+          setErrorRegistration(false);
           mainApi.login(email, password)
           .then((res) => {
             handleLogin()
+            setErrorRegistration(false);
           })
           .catch((err) => {
             throw err;
           })
         } else {
           console.log('Что-то пошло не так.');
+          setErrorRegistration(true);
         }
       })
       .catch((err) => {
+        setErrorRegistration(true);
         console.log(`Ошибка - ${err}`);
       });
   }
@@ -241,11 +250,11 @@ function App() {
         <Route exact={true} path="/">
           <Main></Main>
         </Route>
-        <Route exact={true} path="/signin">
-          <Login handleSubmitLogin={handleSubmitLogin}></Login>
-        </Route>
         <Route exact={true} path="/signup">
-          <Register handleSubmitRegister={handleSubmitRegister}></Register>
+          {loggedin ? <Redirect to="/movies"/> : <Register errorRegistation={errorRegistation} handleSubmitRegister={handleSubmitRegister}></Register>}
+        </Route>
+        <Route exact={true} path="/signin">
+         {loggedin ? <Redirect to="/movies"/> : <Login errorLogin={errorLogin} handleSubmitLogin={handleSubmitLogin}></Login>}
         </Route>
         <ProtectedRoute
           exact
