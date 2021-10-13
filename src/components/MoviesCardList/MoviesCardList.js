@@ -5,6 +5,9 @@ import './MoviesCardList.css';
 
 function MoviesCardList(props) {
     const moviesData = props.moviesData;
+    useEffect(() => {
+
+    }, [moviesData]);
     const [item, setItem] = useState(12);
     const [moreItem, setMoreItem] = useState(3);
     useEffect(() => {
@@ -23,14 +26,14 @@ function MoviesCardList(props) {
     function handleMore(e) {
         e.preventDefault();
         setItem(item+moreItem);
-    } 
+    }
     return (
         <section className="moviesList">
             <div className="moviesList__container">
                 {
                     moviesData.length !== 0 ? moviesData.slice(0, item).map((data, index) => (
                         <MoviesCard
-                            key={index}
+                            key={data.id || data.movieId}
                             movie={data}
                             handleSubmitSaveMovie={props.handleSubmitSaveMovie}
                             removeSavedMovie={props.removeSavedMovie}

@@ -144,9 +144,9 @@
             box-sizing: border-box;
 }
 
-@media screen and (max-width: 1125) {
-    ..moviesCard__name {
-        max-width: 215px;
+@media screen and (max-width: 1125px) {
+    .moviesCard__name {
+        max-width: 210px;
     }
 }
 

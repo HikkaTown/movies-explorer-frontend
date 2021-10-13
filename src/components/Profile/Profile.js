@@ -5,13 +5,16 @@ import { useEffect, useState } from 'react';
 
 
 function Profile(props) {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [name, setName] = useState(JSON.parse(localStorage.getItem('user')).name);
+    const [email, setEmail] = useState(JSON.parse(localStorage.getItem('user')).email);
     const [nameDirty, setNameDirty] = useState(false);
     const [emailDirty, setEmailDirty] = useState(false);
-    const [nameError, setNameError] = useState('Поле должно быть заполненно');
-    const [emailError, setEmailError] = useState('Поле должно быть заполненно');
+    // const [nameError, setNameError] = useState('Поле должно быть заполненно');
+    // const [emailError, setEmailError] = useState('Поле должно быть заполненно');
+    const [nameError, setNameError] = useState(null);
+    const [emailError, setEmailError] = useState(null);
     const [formValid, setFormValid] = useState(false);
+    const [sameDataError, setSameDataError] = useState(false);
 
     useEffect(() => {
         if(nameError || emailError) {
@@ -25,10 +28,12 @@ function Profile(props) {
         setName(e.target.value);
         if (e.target.value.length < 2 || e.target.value.length > 30) {
             setNameError('Длинна дожна быть от 2 до 30 символов');
+            setSameDataError(false);
         } else if (e.target.value === JSON.parse(localStorage.getItem('user')).name) {
             setNameError('Некорректное имя!');
         } else {
             setNameError('');
+            setSameDataError(false);
         }
     }
 
@@ -40,6 +45,7 @@ function Profile(props) {
             setEmailError('Некорректный Email');
         } else {
             setEmailError('');
+            setSameDataError(false);
         }
     }
 
@@ -63,38 +69,48 @@ function Profile(props) {
         mainApi.signout().then(res => {console.log('Успешно вышли')}).catch(e => {console.log('Что-то пошло не так')})
         props.setLoggedin(false);
         history.push('/');
-      }
+    }
+
     function handleSubmitProfile(e) {
         e.preventDefault();
-        props.handleSubmitEditPorfile(name, email);
-        setName('');
-        setEmail('');
+        if(!(name === JSON.parse(localStorage.getItem('user')).name && email === JSON.parse(localStorage.getItem('user')).email)) {
+            console.log('Данные проходят')
+            props.handleSubmitEditPorfile(name, email);
+            setName(name);
+            setEmail(email);
+            setSameDataError(false);
+        } else {
+            setFormValid(false);
+            setSameDataError(true);
+        }
+        
     }
     return (<>
         <section className="profile">
             <h1 className="profile__header">Привет, {JSON.parse(localStorage.getItem('user')).name}!</h1>
             <form className="profile__form" onSubmit={handleSubmitProfile}>
+                {sameDataError ? <p className="profile__error-same">Необходимо изменить данные данные</p> : ''}
                 <p className="profile__line">
                     Имя
                     <input type="text" 
                         name="name" 
                         className="profile__input profile__name" 
-                        placeholder={JSON.parse(localStorage.getItem('user')).name}
+                        placeholder="Введите имя"
                         onChange={e => nameHandler(e)}
                         value={name} 
-                        onBlur={blureHandle}
+                        onInput={blureHandle}
                     />
                 </p>
-                {(nameDirty && nameError) && <span className="profile__error profile__error_active">{nameError}</span> }
+                {(nameError && nameDirty) && <span className="profile__error profile__error_active">{nameError}</span> }
                 <p className="profile__line">
                     E-mail
                     <input type="text" 
                         name="email" 
                         className="profile__input profile__email" 
-                        placeholder={JSON.parse(localStorage.getItem('user')).email} 
+                        placeholder="Введите email"
                         onChange={e => emailHandler(e)} 
                         value={email} 
-                        onBlur={blureHandle}
+                        onInput={blureHandle}
                     />
                 </p>
                 {(emailDirty && emailError) && <span className="profile__error profile__error_active">{emailError}</span> }

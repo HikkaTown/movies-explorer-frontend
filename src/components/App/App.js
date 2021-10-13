@@ -67,6 +67,7 @@ function App() {
           email: res.data.email,
           name: res.data.name
         }));
+        getAllMovies();
         getUserMovies();
     })
     .catch((err) => console.log(`Ошибка - ${err}`));
@@ -173,33 +174,34 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [moviesData, setMoviesData] = useState(null);
   const [findResult, setFindResult] = useState('');
-  function handleSubmitSearchMovie(value, filter) {
-    setLoading(true);
-    value = value.toLowerCase();
+  const [allMovies, setAllMovies] = useState(null);
+  function getAllMovies() {
     moviesApi.getMovies()
       .then((res) => {
-        let resultSearch = res.filter(movie => (filter ? 
-          (+movie.duration <= 40 && movie.nameRU.toLowerCase().indexOf(value)+1) : (movie.nameRU.toLowerCase().indexOf(value)+1)
-          ))
-        if(resultSearch.length === 0) {
-          console.log(resultSearch.length);
-          setLoading(false);
-          setFindResult('Ничего не найдено');
-          setMoviesData(null);
-          if(!localStorage.getItem('movies') === true) {
-            localStorage.removeItem('movies');
-          }
-        } else {
-          setMoviesData(resultSearch);
-          setLoading(false);
-          localStorage.setItem('movies', JSON.stringify(resultSearch));
-        }
+        setAllMovies(res);
       })
       .catch((err) => {
-        setLoading(false);
-        setFindResult('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
+        setFindResult('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
         console.log(`Ошибка - ${err}`)
       })
+  }
+  function handleSubmitSearchMovie(value) {
+    setLoading(true);
+    value = value.toLowerCase();
+    let resultSearch = allMovies.filter(movie => ( movie.nameRU.toLowerCase().indexOf(value)+1));
+    if(resultSearch.length === 0) {
+      setLoading(false);
+      setFindResult('Ничего не найдено');
+      setMoviesData(null);
+      if(!localStorage.getItem('movies') === true) {
+        localStorage.removeItem('movies');
+      }
+    } else {
+      setMoviesData(resultSearch);
+      setLoading(false);
+      localStorage.setItem('movies', JSON.stringify(resultSearch));
+    }
+    
   }
   // отвечает за получение фильмов юзера
   const [userMovies, setUserMovies] = useState('');
@@ -216,18 +218,75 @@ function App() {
   // отвечает за поиск среди сохраненных movie 
   const [savedSearch, setSavedSearch] = useState(null);
   const [savedSearchError, setSavedSearchError] = useState('');
+  const [filterResult, setFilterResult] = useState(null)
 
-  function searchSavedMovie(value, filter) {
+  function searchSavedMovie(value) {
     setLoading(true);
     value = value.toLowerCase();
-    let resultSearch = userMovies.filter(movie => (filter ? (+movie.duration <= 40 && movie.nameRU.toLowerCase().indexOf(value)+1) : (movie.nameRU.toLowerCase().indexOf(value)+1)));
+    let resultSearch = userMovies.filter(movie => (movie.nameRU.toLowerCase().indexOf(value)+1));
     if(resultSearch.length === 0) {
       setLoading(false);
+      setSavedSearch(null);
       setSavedSearchError('Ничего не найдено');
-      setSavedSearch(null)
     } else {
       setLoading(false)
       setSavedSearch(resultSearch);
+    }
+  }
+
+  // фильтр короткометражка
+  function filterMovies(filter) {
+    if(window.location.pathname === '/movies') {
+      const data = JSON.parse(localStorage.getItem('movies')) || moviesData;
+      setLoading(true);
+      let resultSearch = data.filter(movie => (movie.duration <= 40));
+      if(filter) {
+        if(resultSearch.length === 0) {
+          setLoading(false);
+          setMoviesData(null);
+        } else {
+          setMoviesData(null);
+          setMoviesData(resultSearch);
+          setLoading(false);
+        }
+      } else {
+        setLoading(false);
+        setMoviesData(data)
+      }
+    } else {
+      // const data = userMovies || savedSearch;
+      let data;
+      if(!!savedSearch) {
+        data = savedSearch;
+      } else {
+        data = userMovies;
+      }
+      console.log(savedSearch);
+      console.log(data)
+      setLoading(true);
+      let resultSearch = data.filter(movie => (movie.duration <= 40));
+      if(filter) {
+        if(resultSearch.length === 0) {
+          setLoading(false);
+          setSavedSearchError('Ничего не найдено');
+          setSavedSearch(null)
+          setFilterResult(null);
+        } else {
+          
+          setLoading(false);
+          setFilterResult(null)
+          setFilterResult(resultSearch)
+        }
+      } else {
+        setLoading(false);
+        if(savedSearch) {
+          setFilterResult(null);
+          setSavedSearch(savedSearch);
+        } else {
+          setFilterResult(null)
+          setSavedSearch(data);
+        }
+      }
     }
   }
 
@@ -270,6 +329,7 @@ function App() {
           userMovies={userMovies}
           setFindResult={setFindResult}
           removeSavedMovie={removeSavedMovie}
+          filterMovies={filterMovies}
           component={Movies}
         />
         <ProtectedRoute
@@ -282,6 +342,8 @@ function App() {
           savedSearch={savedSearch}
           savedSearchError={savedSearchError}
           searchSavedMovie={searchSavedMovie}
+          filterMovies={filterMovies}
+          filterResult={filterResult}
           component={SavedMovies}
         />
         <ProtectedRoute

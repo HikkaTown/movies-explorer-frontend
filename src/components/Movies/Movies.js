@@ -17,13 +17,14 @@ function Movies(props) {
     return (<>
         <SearchForm
             onSubmitSeacrh={props.handleSubmitSearchMovie}
+            filterMovies={props.filterMovies}
         />
         {
             props.loading ? <Preloader/> : (!!localStorage.getItem('movies') ? searchMovie ? (<MoviesCardList
                 handleSubmitSaveMovie={props.handleSubmitSaveMovie}
                 userMovies={props.userMovies}
                 removeSavedMovie={props.removeSavedMovie}
-                windowSize={props.windowSize} // фильмы из резултата поиска
+                windowSize={props.windowSize} 
                 moviesData={searchMovie}/>) : 
                 props.findResult ? 
                 (<p className="movies__message_error">{props.findResult}</p>) : 

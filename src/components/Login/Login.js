@@ -69,7 +69,7 @@ function Login(props) {
                     <input 
                         value={email} 
                         onChange={e => emailHandler(e)} 
-                        onBlur={blureHandle} type="text" 
+                        onInput={blureHandle} type="text" 
                         className="login__input login__input_email" 
                         name="email" />
                     {(emailDirty && emailError) && <span className="login__error login__error_active">{emailError}</span> }
@@ -77,7 +77,7 @@ function Login(props) {
                     <input 
                         value={password} 
                         onChange={e => passwordHanlder(e)} 
-                        onBlur={blureHandle} 
+                        onInput={blureHandle} 
                         className="login__input login__input_password" 
                         type="password" name="password" />
                     {(passwordDirty && passwordError) && <span className="login__error login__error_active">{passwordError}</span> }

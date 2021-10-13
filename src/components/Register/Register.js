@@ -80,13 +80,13 @@ function Register(props) {
                 <h1 className="register__header">Добро пожаловать!</h1>
                 <form className="register__form" onSubmit={handleSubmit}>
                     <label className="register__label">Имя</label>
-                    <input onChange={e => nameHandler(e)} value={name} onBlur={blureHandle} type="text" name="name" className="register__input register__input_name" />
+                    <input onChange={e => nameHandler(e)} value={name} onInput={blureHandle} type="text" name="name" className="register__input register__input_name" />
                     {(nameDirty && nameError) && <span className="register__error register__error_active">{nameError}</span> }
                     <label className="register__label">E-mail</label>
-                    <input onChange={e => emailHandler(e)} value={email} onBlur={blureHandle} type="text" name="email" className="register__input register__input_email" />
+                    <input onChange={e => emailHandler(e)} value={email} onInput={blureHandle} type="text" name="email" className="register__input register__input_email" />
                     {(emailDirty && emailError) && <span className="register__error register__error_active">{emailError}</span> }
                     <label className="register__label">Пароль</label>
-                    <input onChange={e => passwordHanlder(e)} value={password} onBlur={blureHandle} className="register__input register__input_password" type="password" name="password" />
+                    <input onChange={e => passwordHanlder(e)} value={password} onInput={blureHandle} className="register__input register__input_password" type="password" name="password" />
                     {(passwordDirty && passwordError) && <span className="register__error register__error_active">{passwordError}</span> }
                     <button disabled={!formValid} className={!formValid ? 'register__submit register__submit_disabled' : 'register__submit'} type="submit">Зарегистрироваться</button>
                 </form>

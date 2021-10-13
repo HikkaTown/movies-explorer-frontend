@@ -6,7 +6,6 @@ import './MoviesCard.css';
 function MoviesCard(props) {
     const movieData = props.movie;
     const [saveState, setSaveState] = React.useState(false)
-
     function movieDelete(e) {
         setSaveState(false);
         const elemetn = e.target;
@@ -32,7 +31,7 @@ function MoviesCard(props) {
                 }
             }
         }
-    }, [movieData.id, props.userMovies])
+    }, [movieData, props.userMovies])
     
 
     return (

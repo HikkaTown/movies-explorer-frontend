@@ -102,6 +102,16 @@
     line-height: 13px;
 }
 
+.profile__error-same {
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 27px;
+    color: #EE3465;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
 .profile__error {
     font-weight: normal;
     font-size: 10px;

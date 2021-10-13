@@ -4,19 +4,21 @@ import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 
 function SavedMovies(props) {
-    const [savedData, setSavedData] = useState(false);
+    const [searchData, setSearchData] = useState(null);
     useEffect(() => {
-        if(props.savedSearch) {
-            setSavedData(true)
-        } else {
-            setSavedData(false)
+        if(!!props.savedSearch && !!props.filterResult === false ) {
+            setSearchData(props.savedSearch)
+        } else if(!!props.filterResult && !!props.savedSearch) {
+            setSearchData(props.filterResult);
+        } else if(!!props.savedSearch && (!!props.filterResult === false)) {
+            setSearchData(null);
         }
-    }, [props.savedSearch]);
+    }, [props.savedSearch, props.filterResult]);
     return (<>
-        <SearchForm searchSavedMovie={props.searchSavedMovie} />
+        <SearchForm filterMovies={props.filterMovies} searchSavedMovie={props.searchSavedMovie} />
         {
-            props.loading ? <Preloader/> : (!!props.userMovies ? savedData ? (<MoviesCardList
-                moviesData={props.savedSearch}
+            props.loading ? <Preloader/> : (!!props.userMovies ? !!searchData ? (<MoviesCardList
+                moviesData={searchData}
                 windowSize={props.windowSize}
                 removeSavedMovie={props.removeSavedMovie}
             />) : props.savedSearchError ? (<p className="movies__message_error">{props.savedSearchError}</p>) : props.userMovies ? (<MoviesCardList
