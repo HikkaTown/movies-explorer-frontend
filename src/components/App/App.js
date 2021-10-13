@@ -254,15 +254,12 @@ function App() {
         setMoviesData(data)
       }
     } else {
-      // const data = userMovies || savedSearch;
       let data;
       if(!!savedSearch) {
         data = savedSearch;
       } else {
         data = userMovies;
       }
-      console.log(savedSearch);
-      console.log(data)
       setLoading(true);
       let resultSearch = data.filter(movie => (movie.duration <= 40));
       if(filter) {
