@@ -1,0 +1,9 @@
+.movies__message_error {
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(126, 126, 126);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
