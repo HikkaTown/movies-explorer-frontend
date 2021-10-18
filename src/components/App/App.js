@@ -74,7 +74,6 @@ function App() {
     })
     .catch((err) => {
       console.log(`Ошибка - ${err}`)
-      openPopupError('Вовремя проверки токена произошла ошибка');
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
