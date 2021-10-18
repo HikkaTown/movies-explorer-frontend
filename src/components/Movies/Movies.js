@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
+import image from '../../images/video-player.png';
 
 
 function Movies(props) {
@@ -19,6 +20,13 @@ function Movies(props) {
             onSubmitSeacrh={props.handleSubmitSearchMovie}
             filterMovies={props.filterMovies}
         />
+
+        {localStorage.getItem('movies') ? '' : 
+        (<div className="movies__content">
+            <img className="movies__image" src={image} alt="Лого" />
+            <p className="movies__title">Для поиска фильма введите ключевое слово</p>
+        </div>)}
+
         {
             props.loading ? <Preloader/> : (!!localStorage.getItem('movies') ? searchMovie ? (<MoviesCardList
                 handleSubmitSaveMovie={props.handleSubmitSaveMovie}

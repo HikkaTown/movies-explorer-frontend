@@ -7,3 +7,24 @@
     max-width: 450px;
     margin: 0 auto;
 }
+
+.movies__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.movies__image {
+    width: 128px;
+    height: 128px;
+}
+
+.movies__title {
+    color: rgb(151, 151, 151);
+    margin: 0;
+    padding: 20px;
+    max-width: 600px;
+    text-align: center;
+}

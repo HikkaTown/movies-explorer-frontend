@@ -8,9 +8,33 @@ function Portfolio() {
                     Портфолио
                 </h2>
                 <ul className="portfolio__list">
-                    <li className="portfolio__item">Статичный сайт<a className="portfolio__link" target="_blank" rel="noreferrer" href="https://github.com/HikkaTown/how-to-learn">↗</a></li>
-                    <li className="portfolio__item">Адаптивный сайт<a className="portfolio__link" target="_blank" rel="noreferrer" href="https://github.com/HikkaTown/russian-travel">↗</a></li>
-                    <li className="portfolio__item">Одностраничное приложение<a className="portfolio__link" target="_blank" rel="noreferrer" href="https://mesto.praktikum.nomoredomains.rocks/sign-in">↗</a></li>
+                    <li className="portfolio__item">
+                        <a 
+                            className="portfolio__link" 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            href="https://github.com/HikkaTown/how-to-learn"
+                        >Статичный сайт<span className="portfolio__icon">↗</span>
+                        </a>
+                    </li>
+                    <li className="portfolio__item">
+                        <a 
+                            className="portfolio__link" 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            href="https://github.com/HikkaTown/russian-travel"
+                        >Адаптивный сайт<span className="portfolio__icon">↗</span>
+                        </a>
+                    </li>
+                    <li className="portfolio__item">
+                        <a 
+                            className="portfolio__link" 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            href="https://mesto.praktikum.nomoredomains.rocks/sign-in"
+                        >Одностраничное приложение<span className="portfolio__icon">↗</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </section>

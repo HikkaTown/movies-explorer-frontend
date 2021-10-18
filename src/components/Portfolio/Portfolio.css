@@ -26,12 +26,6 @@
 }
 
 .portfolio__item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     font-weight: normal;
     font-size: 30px;
     line-height: 50px;
@@ -50,6 +44,9 @@
 
 .portfolio__link {
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-decoration: none;
     font-weight: normal;
     font-size: 30px;

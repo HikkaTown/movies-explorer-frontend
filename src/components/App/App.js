@@ -13,6 +13,7 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import NotFound from '../NotFound/NotFound';
+import PopupMessage from '../PopupMessage/PopupMessage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -39,6 +40,7 @@ function App() {
       })
       .catch((e) => console.log(`Ошибка - ${e}`));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedin]);
   function handleLogin(e) {
     mainApi.getUser()
@@ -70,7 +72,11 @@ function App() {
         getAllMovies();
         getUserMovies();
     })
-    .catch((err) => console.log(`Ошибка - ${err}`));
+    .catch((err) => {
+      console.log(`Ошибка - ${err}`)
+      openPopupError('Вовремя проверки токена произошла ошибка');
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -146,6 +152,7 @@ function App() {
       })
       .catch((err) => {
         console.log(`Ошибка - ${err}`);
+        openPopupError('Во время редактирования произошла ошибка.')
       })
   }
 
@@ -168,6 +175,7 @@ function App() {
     })
     .catch((err) => {
       console.log(`Ошибка - ${err}`);
+      openPopupError('При сохранении фильма произошла ошибка.')
     })
   }
   // отвечает за отрисовку фильмов на /movies
@@ -212,6 +220,7 @@ function App() {
       })
       .catch((err) => {
         console.log(`Ошибка - ${err}`);
+        openPopupError('Произошла ошибка при получении фильмов.')
       })
   }
 
@@ -269,7 +278,6 @@ function App() {
           setSavedSearch(null)
           setFilterResult(null);
         } else {
-          
           setLoading(false);
           setFilterResult(null)
           setFilterResult(resultSearch)
@@ -294,10 +302,23 @@ function App() {
         getUserMovies();
       })
       .catch((err) => {
-        console.log(`Ошибка - ${err}`)
+        console.log(`Ошибка - ${err}`);
+        openPopupError('Произошла ошибка при удалении фильма.');
       })
   }
+
+  const [popupError, setPopupError] = useState(false);
+  const [popupTextError, setPopupTextError] = useState('');
   
+  function openPopupError( message) {
+    setPopupTextError(message);
+    setPopupError(true)
+    setTimeout(() => {
+      setPopupError(false);
+      setPopupTextError('');
+    }, 5000);
+  }
+
   return (
     <>
     <CurrentUserContext.Provider value={currentUser}>
@@ -358,6 +379,10 @@ function App() {
           component={NotFound}
         />
       </Switch>
+      <PopupMessage 
+        onActive={popupError}
+        textMessage={popupTextError}
+      />
       <Footer></Footer>
     </CurrentUserContext.Provider>
     </>

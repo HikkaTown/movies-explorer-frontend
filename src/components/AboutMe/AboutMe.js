@@ -1,5 +1,5 @@
 import './AboutMe.css';
-import avatar from '../../images/avatar.png';
+import avatar from '../../images/avatar.jpg';
 
 function AboutMe() {
     return (
@@ -8,16 +8,16 @@ function AboutMe() {
                 <h2 className="aboutMe__header">Студент</h2>
                 <div className="aboutMe__content">
                     <div className="aboutMe__description">
-                        <h3 className="aboutMe__name">Виталий</h3>
-                        <p className="aboutMe__proffesion">Фронтенд-разработчик, 30 лет</p>
+                        <h3 className="aboutMe__name">Геннадий Зайцев</h3>
+                        <p className="aboutMe__proffesion">Начинающий фронтенд-разработчик, 20 лет</p>
                         <p className="aboutMe__subtitle">
-                            Я родился и живу в Саратове, закончил факультет экономики СГУ. 
-                            У меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. 
-                            С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, 
-                            начал заниматься фриланс-заказами и ушёл с постоянной работы.
+                            Я живу в Москве, окончил курсы "Веб-разработчик" от компании Яндекс.Практикум.
+                            На данный момент нахожусь в поиске работы на позицию Junior Frontend Developer.
+                            Хочу развиваться и изучать новые технологии которые помогут достичь профессионализма в IT сфере.
+                            В свободное время люблю отдых на свежем воздухе и кататься на скейте.
                         </p>
                         <ul className="aboutMe__links">
-                            <li className="aboutMe__item"><a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="aboutMe__link">Facebook</a></li>
+                            <li className="aboutMe__item"><a href="https://t.me/longdread" target="_blank" rel="noreferrer" className="aboutMe__link">Telegram</a></li>
                             <li className="aboutMe__item"><a href="https://github.com/HikkaTown" target="_blank" rel="noreferrer" className="aboutMe__link">Github</a></li>
                         </ul>
                     </div>

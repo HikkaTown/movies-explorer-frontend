@@ -78,6 +78,7 @@
     -webkit-transition: background .4s, color .4s linear;
     -o-transition: background .4s, color .4s linear;
     transition: background .4s, color .4s linear;
+    user-select: none;
 }
 
 .techs__item:hover {

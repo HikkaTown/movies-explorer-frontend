@@ -15,12 +15,12 @@ function Footer() {
                     </p>
 
                     <div className="footer__content">
-                        <p className="footer__copyright">&copy; 2020</p>
+                        <p className="footer__copyright">&copy; 2021</p>
 
                         <nav className="footer__links">
                             <a href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer" className="footer__link">Яндекс.Практикум</a>
                             <a href="https://github.com/HikkaTown" target="_blank" rel="noreferrer" className="footer__link">Github</a>
-                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="footer__link">Facebook</a>
+                            <a href="https://t.me/longdread" target="_blank" rel="noreferrer" className="footer__link">Telegram</a>
                         </nav>
                     </div>
                 </div>
@@ -39,7 +39,7 @@ function Footer() {
                         <nav className="footer__links">
                             <a href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer" className="footer__link">Яндекс.Практикум</a>
                             <a href="https://github.com/HikkaTown" target="_blank" rel="noreferrer" className="footer__link">Github</a>
-                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="footer__link">Facebook</a>
+                            <a href="https://t.me/longdread" target="_blank" rel="noreferrer" className="footer__link">Telegram</a>
                         </nav>
                     </div>
                 </div>
@@ -58,7 +58,7 @@ function Footer() {
                         <nav className="footer__links">
                             <a href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer" className="footer__link">Яндекс.Практикум</a>
                             <a href="https://github.com/HikkaTown" target="_blank" rel="noreferrer" className="footer__link">Github</a>
-                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="footer__link">Facebook</a>
+                            <a href="https://t.me/longdread" target="_blank" rel="noreferrer" className="footer__link">Telegram</a>
                         </nav>
                     </div>
                 </div>
